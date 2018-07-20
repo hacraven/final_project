@@ -16,10 +16,26 @@ def create
 		end
 end  
 
+def edit
+end
+
+def update
+    if @post.update post_params
+			redirect_to @post, notice: "Yeah! Your article has been successfully saved! Feel accomplished!"
+		else
+			render 'edit'
+		end
+end 
+
+def destroy
+		@post.destroy
+		redirect_to posts_path
+	end   
+
 def post_params
 		params.require(:post).permit(:title, :content, :slug)
 	end	
-	
+
 def find_post
 		@post = Post.friendly.find(params[:id])
 	end
