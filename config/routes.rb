@@ -6,4 +6,8 @@ resources :posts
 
 
 
+
+root 'welcome#index'
+
+
 end
